@@ -47,9 +47,31 @@ export default function Index() {
   ]
 
   const portfolio = [
-    { before: "/placeholder.svg", after: "/placeholder.svg", title: "BMW X5 - Полная детализация" },
-    { before: "/placeholder.svg", after: "/placeholder.svg", title: "Mercedes-Benz - Керамическое покрытие" },
-    { before: "/placeholder.svg", after: "/placeholder.svg", title: "Audi A8 - Химчистка салона" }
+    { 
+      image: "https://cdn.poehali.dev/files/9efaeb44-762f-4f29-9198-75f1ca3e9b52.jpg", 
+      title: "BMW - Керамическое покрытие",
+      description: "Нанесение защитной плёнки с керамическим покрытием"
+    },
+    { 
+      image: "https://cdn.poehali.dev/files/7414f6ca-d100-4195-ade8-a9d1aa49b79d.jpg", 
+      title: "BMW - Детейлинг кузова",
+      description: "Полная обработка кузова с восстановлением блеска"
+    },
+    { 
+      image: "https://cdn.poehali.dev/files/12fba34e-0a66-4490-9668-b4343969890a.jpg", 
+      title: "Tesla - Химчистка салона",
+      description: "Профессиональная химчистка и защита интерьера"
+    },
+    { 
+      image: "https://cdn.poehali.dev/files/54032aed-4e5b-4f98-ab49-39cbe5589742.jpg", 
+      title: "BMW - Детализация кузова",
+      description: "Высококачественная полировка и защитное покрытие"
+    },
+    { 
+      image: "https://cdn.poehali.dev/files/c766fed7-f648-44d9-bc56-b8d3be63f699.jpg", 
+      title: "BMW X3 - Комплексная обработка",
+      description: "Полный цикл детейлинга: кузов, диски, защитные покрытия"
+    }
   ]
 
   const reviews = [
@@ -161,19 +183,19 @@ export default function Index() {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {portfolio.map((work, index) => (
-              <Card key={index} className="bg-card border-primary/20 overflow-hidden">
-                <div className="grid grid-cols-2">
-                  <div className="relative">
-                    <img src={work.before} alt="До" className="w-full h-48 object-cover" />
-                    <div className="absolute top-2 left-2 bg-red-500 text-white px-2 py-1 rounded text-sm">До</div>
-                  </div>
-                  <div className="relative">
-                    <img src={work.after} alt="После" className="w-full h-48 object-cover" />
-                    <div className="absolute top-2 right-2 bg-green-500 text-white px-2 py-1 rounded text-sm">После</div>
+              <Card key={index} className="bg-card border-primary/20 overflow-hidden hover:scale-105 transition-transform duration-300">
+                <div className="relative">
+                  <img src={work.image} alt={work.title} className="w-full h-64 object-cover" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                  <div className="absolute bottom-4 left-4 text-white">
+                    <div className="bg-primary/80 px-2 py-1 rounded text-sm font-medium mb-2">
+                      Результат работы
+                    </div>
                   </div>
                 </div>
                 <CardContent className="p-4">
-                  <h3 className="font-heading font-semibold text-card-foreground">{work.title}</h3>
+                  <h3 className="font-heading font-semibold text-card-foreground mb-2">{work.title}</h3>
+                  <p className="text-muted-foreground text-sm">{work.description}</p>
                 </CardContent>
               </Card>
             ))}
